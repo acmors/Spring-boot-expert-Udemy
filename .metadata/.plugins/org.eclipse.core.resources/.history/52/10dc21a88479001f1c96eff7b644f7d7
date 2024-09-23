@@ -1,0 +1,12 @@
+package udemy.curso.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Cliente {
+	
+	private Long id;
+	private String nome;
+	
+	
+}

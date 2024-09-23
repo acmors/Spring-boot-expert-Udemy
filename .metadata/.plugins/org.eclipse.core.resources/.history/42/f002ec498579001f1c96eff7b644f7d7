@@ -1,0 +1,11 @@
+package udemy.curso.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Pedido {
+	
+	private Integer id;
+	private Cliente cliente;
+	private LocalDate dataPedido;
+}
