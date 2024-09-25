@@ -1,17 +1,28 @@
 package udemy.curso.model;
 
-import jakarta.persistence.Entity;
 
-@Entity
 public class Cliente {
 	
-	private Long id;
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String nome) {
+		this.nome = nome;
+	}
+	
+	public Cliente(String nome, Integer id) {
+		this.nome = nome;
+		this.id = id;
+	}
+	
+	private Integer id;
 	private String nome;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -21,5 +32,10 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Cliente{" +
+				"id=" + id +
+				", nome = " + nome;
+	}
 }

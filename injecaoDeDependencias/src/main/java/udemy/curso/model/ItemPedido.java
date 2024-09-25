@@ -1,11 +1,11 @@
 package udemy.curso.model;
 
-import jakarta.persistence.Entity;
 
-@Entity
 public class ItemPedido {
 	
+	
 	private Integer id;
+	
 	private Pedido pedido;
 	private Produto produto;
 	private Integer quantidade;

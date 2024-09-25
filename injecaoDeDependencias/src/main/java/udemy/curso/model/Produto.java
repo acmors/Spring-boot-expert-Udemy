@@ -2,9 +2,7 @@ package udemy.curso.model;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.Entity;
 
-@Entity
 public class Produto {
 	
 	private Integer id;

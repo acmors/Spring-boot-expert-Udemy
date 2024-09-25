@@ -3,12 +3,12 @@ package udemy.curso.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
 
-@Entity
 public class Pedido {
 	
+	
 	private Integer id;
+	
 	private Cliente cliente;
 	private LocalDate dataPedido;
 	private BigDecimal total;
