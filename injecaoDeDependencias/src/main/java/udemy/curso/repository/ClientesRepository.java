@@ -16,6 +16,7 @@ public class ClientesRepository {
 
 	private static String INSERT = "insert into clientes (nome) values (?)";
 	private static String SELECT_ALL = "SELECT * FROM CLIENTES";
+	private static String UPDATE = "update cliente set nome = ? where id = ?";
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -34,5 +35,13 @@ public class ClientesRepository {
 				return new Cliente(nome, id);
 			}
 		}); 
+	}
+	
+	public Cliente atualizar(Cliente cliente) {
+		
+		jdbcTemplate.update(null)
+		
+		return cliente;
+		
 	}
 }
