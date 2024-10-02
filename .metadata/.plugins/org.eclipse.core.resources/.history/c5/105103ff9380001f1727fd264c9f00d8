@@ -1,0 +1,5 @@
+package udemy.curso.repository;
+
+public interface test {
+
+}

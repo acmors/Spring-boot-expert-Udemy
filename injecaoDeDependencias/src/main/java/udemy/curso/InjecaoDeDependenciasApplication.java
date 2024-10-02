@@ -9,45 +9,45 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import udemy.curso.model.Cliente;
-import udemy.curso.repository.ClientesRepository;
+import udemy.curso.repository.ClienteRepository;
 
 @SpringBootApplication
 public class InjecaoDeDependenciasApplication {
 	
 	@Bean
-	public CommandLineRunner init(@Autowired ClientesRepository clientes) {
+	public CommandLineRunner init(@Autowired ClienteRepository cliente) {
 		return args -> {
 			
 			System.out.println("Salvandor clientes");
-			clientes.salvar(new Cliente("Marcos"));
-			clientes.salvar(new Cliente("Pedro"));
-			clientes.salvar(new Cliente("LucasCliente"));
+			cliente.save(new Cliente("Marcos"));
+			cliente.save(new Cliente("Pedro"));
+			cliente.save(new Cliente("LucasCliente"));
 			
-			List<Cliente> todosClientes = clientes.obterTodos();
+			List<Cliente> todosClientes = cliente.findAll();
 			todosClientes.forEach(System.out::println);
 			System.out.println();
 			
 			System.out.println("atualizando clientes....");
 			todosClientes.forEach(c -> {
 				c.setNome(c.getNome() + " atualizado.");
-				clientes.atualizar(c);
+				cliente.save(c);
 			});
 			
 			System.out.println("Obtendo clientes atualizados.");
-			todosClientes = clientes.obterTodos();
+			todosClientes = cliente.findAll();
 			todosClientes.forEach(System.out::println);
 			System.out.println();
 			
 			System.out.println("Buscando clientes");
-			clientes.buscarPorNome("Cli").forEach(System.out::println);;
+			cliente.findByNameLike("Cli").forEach(System.out::println);;
 			
 			System.out.println("deletando clientes.");
 			
-			clientes.obterTodos().forEach(c -> {
-				clientes.deletar(c.getId());
+			cliente.findAll().forEach(c -> {
+				cliente.deleteById(c.getId());
 			});
 			
-			todosClientes = clientes.obterTodos();
+			todosClientes = cliente.findAll();
 			if(todosClientes.isEmpty()) {
 				System.out.println("nenhum cliente encontrado.");
 			}else {
@@ -57,7 +57,7 @@ public class InjecaoDeDependenciasApplication {
 			System.out.println();
 			
 			System.out.println("Obtendo todos os clientes.");
-			todosClientes = clientes.obterTodos();
+			todosClientes = cliente.findAll();
 			todosClientes.forEach(System.out::println);
 
 		};
